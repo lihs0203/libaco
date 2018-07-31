@@ -21,6 +21,12 @@
 // this header including should be at the last of the `include` directives list
 #include "aco_assert_override.h"
 
+int sysconf(int name){
+  if (name == _SC_PAGESIZE)
+    return 4096;
+  else return -1;
+}
+
 void aco_runtime_test(void){
 #ifdef __i386__
     assert(sizeof(void*) == 4);
