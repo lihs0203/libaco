@@ -254,9 +254,10 @@ aco_share_stack_t* aco_share_stack_new2(size_t sz, char guard_page_enabled){
     memset(p, 0, sizeof(aco_share_stack_t));
 
     if(guard_page_enabled != 0){
-        p->real_ptr = mmap(
-            NULL, sz, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0
-        );
+      p->real_ptr = malloc(sz);
+      /*   mmap( */
+        /*     NULL, sz, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 */
+        /* ); */
         assertalloc_bool(p->real_ptr != MAP_FAILED);
         p->guard_page_enabled = 1;
         assert(0 == mprotect(p->real_ptr, u_pgsz, PROT_READ));
