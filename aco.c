@@ -30,7 +30,7 @@ void aco_runtime_test(void){
 #else
     #error "platform no support yet"
 #endif
-    ssert(sizeof(int) >= 4);
+    assert(sizeof(int) >= 4);
     assert(sizeof(int) >= 4);
     assert(sizeof(int) <= sizeof(size_t));
     assert(sizeof(int) <= sizeof(size_t));
@@ -489,3 +489,8 @@ void aco_destroy(aco_t* co){
         free(co);
     }
 }
+
+
+void aco_save_fpucw_mxcsr(void* p){};
+
+void aco_funcp_protector_asm(void){};

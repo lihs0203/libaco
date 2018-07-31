@@ -161,9 +161,8 @@ extern void aco_thread_init(aco_cofuncp_t last_word_co_fp);
 
 extern void* acosw(aco_t* from_co, aco_t* to_co) __asm__("acosw"); // asm
 
-extern void aco_save_fpucw_mxcsr(void* p) __asm__("aco_save_fpucw_mxcsr");  // asm
-
-extern void aco_funcp_protector_asm(void) __asm__("aco_funcp_protector_asm"); // asm
+  void aco_save_fpucw_mxcsr(void* p);  // asm
+ void aco_funcp_protector_asm(void); // asm
 
 extern void aco_funcp_protector(void);
 
