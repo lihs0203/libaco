@@ -23,17 +23,16 @@
 
 void aco_runtime_test(void){
 #ifdef __i386__
-    _Static_assert(sizeof(void*) == 4, "require 'sizeof(void*) == 4'");
+    assert(sizeof(void*) == 4);
 #elif  __x86_64__    
-    _Static_assert(sizeof(void*) == 8, "require 'sizeof(void*) == 8'");
-    _Static_assert(sizeof(__uint128_t) == 16, "require 'sizeof(__uint128_t) == 16'");
+    assert(sizeof(void*) == 8);
+    assert(sizeof(__uint128_t) == 16);
 #else
     #error "platform no support yet"
 #endif
-    _Static_assert(sizeof(int) >= 4, "require 'sizeof(int) >= 4'");
+    ssert(sizeof(int) >= 4);
     assert(sizeof(int) >= 4);
-    _Static_assert(sizeof(int) <= sizeof(size_t),
-        "require 'sizeof(int) <= sizeof(size_t)'");
+    assert(sizeof(int) <= sizeof(size_t));
     assert(sizeof(int) <= sizeof(size_t));
 }
 
